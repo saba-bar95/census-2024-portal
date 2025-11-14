@@ -9,15 +9,30 @@
 .nav-container {
   display: flex;
   justify-content: center;
-  padding: 30px 100px;
+  padding: 14px 100px;
   background-color: #ffffff;
-  position: sticky;
+  position: sticky; // Keep your original sticky positioning
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 1; // Keep your original z-index
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   flex-direction: column;
   gap: 15px;
+
+  // Add smooth transition for scroll hiding/showing
+  transition: transform 0.3s ease-in-out;
+
+  // Default state - visible (navbar stays in normal position)
+  &.visible {
+    transform: translateY(0);
+  }
+
+  // Hidden state - slides up slightly (works with sticky positioning)
+  &.hidden {
+    transform: translateY(
+      -120px
+    ); // Adjust this value to match your navbar height
+  }
 
   .bottom-side {
     display: flex;
@@ -34,7 +49,7 @@
       text-decoration: none;
       color: inherit;
       cursor: pointer;
-      transition: transform 0.3s ease, color 0.3s ease; /* Transition for color and transform */
+      transition: transform 0.3s ease, color 0.3s ease;
 
       &:hover {
         transform: scale(1.05) translateX(-10px);
@@ -162,6 +177,7 @@
   }
 }
 
+// Keep all your original media queries unchanged
 @media only screen and (min-width: $tablet) and (max-width: $desktop) {
   .nav-container {
     .bottom-side {
