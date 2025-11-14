@@ -1,7 +1,7 @@
 import "./Settlements.scss";
 import { useState } from "react";
-import GoogleMap from "./GoogleMap";
-import getCoordinates from "./GetCoordinates";
+// import GoogleMap from "./GoogleMap";
+// import getCoordinates from "./GetCoordinates";
 import images from "./SettlementImages";
 import translations from "../../../translation";
 
@@ -9,7 +9,7 @@ export default function Settlements() {
   const language = localStorage.getItem("language");
   const text = translations[language].main.settlements;
 
-  const apiKey = "AIzaSyB7D2WPALIsuME2Y8wbWGZuob19cbpuiR0";
+  // const apiKey = "AIzaSyB7D2WPALIsuME2Y8wbWGZuob19cbpuiR0";
 
   const settlementNames = [];
   const settlements = [];
@@ -20,24 +20,25 @@ export default function Settlements() {
   });
 
   const [selected, setSelected] = useState(0);
-  const initialCoordinates = { lat: 43.0334614, lng: 42.6894803 };
-  const [selectedLocation, setSelectedLocation] = useState(initialCoordinates);
+  // const initialCoordinates = { lat: 43.0334614, lng: 42.6894803 };
+  // const [selectedLocation, setSelectedLocation] = useState(initialCoordinates);
 
   const handleClick = async (index) => {
     setSelected(index);
-    const address = settlementNames[index];
-    try {
-      const result = await getCoordinates(address);
-      const location = result[0].geometry.location;
 
-      const coordinates = {
-        lat: location.lat(),
-        lng: location.lng(),
-      };
-      setSelectedLocation(coordinates);
-    } catch (error) {
-      console.error(error);
-    }
+    // const address = settlementNames[index];
+    // try {
+    //   const result = await getCoordinates(address);
+    //   const location = result[0].geometry.location;
+
+    //   const coordinates = {
+    //     lat: location.lat(),
+    //     lng: location.lng(),
+    //   };
+    //   setSelectedLocation(coordinates);
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   return (
