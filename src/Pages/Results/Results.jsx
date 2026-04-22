@@ -48,8 +48,9 @@ export default function Results() {
   };
 
   const createDownloadHandler = (fileName) => {
+    const folder = language === "ka" ? "ge" : "en";
     const link = document.createElement("a");
-    link.href = `/${encodeURIComponent(fileName)}`;
+    link.href = `/${folder}/${encodeURIComponent(fileName)}`;
     link.download = fileName;
     document.body.appendChild(link);
     link.click();
