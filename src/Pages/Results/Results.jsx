@@ -3,128 +3,123 @@ import Navbar from "../../components/Navbar/Navbar";
 import Section from "../../components/Main.jsx/Section";
 import translations from "../../translation";
 
+const ExternalLinkIcon = () => (
+  <svg
+    className="external-link-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+    <polyline points="15 3 21 3 21 9" />
+    <line x1="10" y1="14" x2="21" y2="3" />
+  </svg>
+);
+
 export default function Results() {
   const language = localStorage.getItem("language");
   const text = translations[language].pages.results;
 
   const links = {
-    ka: {
-      first:
-        "საქართველოს 2024 წლის მოსახლეობის და სასოფლო-სამეურნეო აღწერის წინასწარი შედეგები",
-      second:
-        "მოსახლეობის რიცხოვნობა რეგიონების, თვითმმართველი ერთეულების და საქალაქო-სასოფლო დასახლებების მიხედვით",
-      third:
-        "მოსახლეობის რიცხოვნობა რეგიონების, თვითმმართველი ერთეულების და სქესის მიხედვით",
-    },
-    en: {
-      first:
-        "2024 Population and Agricultural Census of Georgia Preliminary results",
-      second:
-        "Population by regions, self-governed units and urban-rural settlements",
-      third: "Population by regions, self-governed units and sex",
-    },
+    ka: [
+      {
+        label: "ნაწილი 1. ზოგადი ინფორმაცია მეურნეობის შესახებ",
+        url: "https://www.geostat.ge/ka/modules/categories/906/tsatsili-1-zogadi-informatsia-meurneobis-shesakheb",
+      },
+      {
+        label: "ნაწილი 2. მეურნეობების სარგებლობაში არსებული მიწა",
+        url: "https://www.geostat.ge/ka/modules/categories/907/natsili-2-meurneobebis-sargeblobashi-arsebuli-mitsa",
+      },
+      {
+        label: "ნაწილი 3. მრავალწლოვანი ნარგავები",
+        url: "https://www.geostat.ge/ka/modules/categories/916/natsili-3-mravaltslovani-nargavebi",
+      },
+      {
+        label: "ნაწილი 4. პირუტყვი, ფრინველი და ფუტკრის ოჯახები",
+        url: "https://www.geostat.ge/ka/modules/categories/917/natsili-4-pirutqvi-frinveli-da-futkris-ojakhebi",
+      },
+    ],
+    en: [
+      {
+        label: "Section 1. General Information On Agricultural Holdings",
+        url: "https://www.geostat.ge/en/modules/categories/906/section-1-general-information-on-agricultural-holdings",
+      },
+      {
+        label: "Section 2. Land Operated By Agricultural Holdings",
+        url: "https://www.geostat.ge/en/modules/categories/907/section-2-land-operated-by-agricultural-holdings",
+      },
+      {
+        label: "Section 3. Permanent Crops",
+        url: "https://www.geostat.ge/en/modules/categories/916/section-3-permanent-crops",
+      },
+      {
+        label: "Section 4. Livestock, Poultry And Beehives",
+        url: "https://www.geostat.ge/en/modules/categories/917/section-4-livestock-poultry-and-beehives",
+      },
+    ],
   };
 
   const links2 = {
-    ka: {
-      first: "საქართველოს 2024 წლის მოსახლეობის აღწერის დაზუსტებული შედეგები",
-      second:
-        "საქართველოს მოსახლეობის რიცხოვნობა რეგიონების, თვითმმართველი ერთეულების, საქალაქო-სასოფლო ტიპის დასახლებების და სქესის მიხედვით",
-      third:
-        "საქართველოს მოსახლეობის რიცხოვნობა რეგიონების, თვითმმართველი ერთეულების, 5 წლიანი ასაკობრივი ჯგუფების, საქალაქო-სასოფლო ტიპის დასახლებების და სქესის მიხედვით",
-      fourth:
-        "საქართველოს მოსახლეობის რიცხოვნობა ასაკის, საქალაქო-სასოფლო ტიპის დასახლებების და სქესის მიხედვით (1 წლიანი ასაკებით)",
-    },
-    en: {
-      first:
-        "2024 Population and Agricultural Census of Georgia Finalized results",
-      second:
-        "Population of Georgia by regions, self-governed units, urban-rural settlements and sex",
-      third:
-        "Population of Georgia by regions, self-governed units, 5-year age groups, urban-rural settlements and sex",
-      fourth:
-        "Population of Georgia by age, urban-rural settlements and sex (single years of age)",
-    },
-  };
-
-  const createDownloadHandler = (fileName) => {
-    const folder = language === "ka" ? "ge" : "en";
-    const link = document.createElement("a");
-    link.href = `/${folder}/${encodeURIComponent(fileName)}`;
-    link.download = fileName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  // Handlers for preliminary results (header)
-  const handlers = {
-    first: () => {
-      const fileName =
-        language === "ka"
-          ? "საქართველოს 2024 წლის მოსახლეობის და სასოფლო-სამეურნეო აღწერის წინასწარი შედეგები.pdf"
-          : "2024 Population and Agricultural Census of Georgia Preliminary results.pdf";
-      createDownloadHandler(fileName);
-    },
-    second: () => {
-      const fileName =
-        language === "ka"
-          ? "01-mosaxleoba-RegionebiT-TviTmarTveli-erTeulebiT-da-saqalaqo-sasoflo-dasaxlebebiT.xlsx"
-          : "01-Population-by-regions-self-governed-units-and-urban-rural-settlements.xlsx";
-      createDownloadHandler(fileName);
-    },
-    third: () => {
-      const fileName =
-        language === "ka"
-          ? "02-mosaxleoba-RegionebiT-TviTmarTveli-erTeulebiT-da-sqesiT.xlsx"
-          : "02-Population-by-regions-self-governed-units-and-sex.xlsx";
-      createDownloadHandler(fileName);
-    },
-    fourth: () => {
-      const fileName = "Census 2024_25.06.2024.pdf";
-      createDownloadHandler(fileName);
-    },
-  };
-
-  // Handlers for finalized results (header2)
-  const handlers2 = {
-    first: () => {
-      const fileName =
-        language === "ka"
-          ? "საქართველოს-2024-წლის-მოსახლეობის-და-სასოფლო-სამეურნეო-აღწერის--დაზუსტებული-შედეგები.pdf"
-          : "2024-Population-and-Agricultural-Census-of-Georgia-Finalized-results.pdf";
-      createDownloadHandler(fileName);
-    },
-    second: () => {
-      const fileName =
-        language === "ka"
-          ? "01-mosaxleoba-TviTmmarTveli-erTeulebis-dasaxlebis-tipisa-da-sqesis-mixedviT.xlsx"
-          : "01-population-by-self-governed-units-settlement-type-and-sex.xlsx";
-      createDownloadHandler(fileName);
-    },
-    third: () => {
-      const fileName =
-        language === "ka"
-          ? "02-mosaxleoba-TviTmmarTveli-erTeulebis-asakis-dasaxlebis-tipis-da-sqesis-mixedviT.xlsx"
-          : "02-population-by-self-governed-units-age-groups-settlement-type-and-sex.xlsx";
-      createDownloadHandler(fileName);
-    },
-    fourth: () => {
-      const fileName =
-        language === "ka"
-          ? "03-mosaxleoba-asakis-dasaxlebebis-tipis-da-sqesis-mixedviT.xlsx"
-          : "03-population-by-age-settlement-type-and-sex.xlsx";
-      createDownloadHandler(fileName);
-    },
-  };
-
-  const handleClick = (e, whichHandlers) => {
-    if (e.target.tagName === "LI") {
-      const type = e.target.dataset.type;
-      if (whichHandlers[type]) {
-        whichHandlers[type]();
-      }
-    }
+    ka: [
+      {
+        label: "მოსახლეობის გეოგრაფიული განაწილება და შიდა მიგრაცია",
+        url: "https://www.geostat.ge/ka/modules/categories/909/mosakhleobis-geografiuli-ganatsileba-da-shida-migratsia",
+      },
+      {
+        label: "დემოგრაფიული და სოციალური მახასიათებლები",
+        url: "https://www.geostat.ge/ka/modules/categories/910/demografiuli-da-sotsialuri-makhasiateblebi",
+      },
+      {
+        label: "განათლების დონე",
+        url: "https://www.geostat.ge/ka/modules/categories/912/ganatlebis-done",
+      },
+      {
+        label: "ეკონომიკური მახასიათებლები",
+        url: "https://www.geostat.ge/ka/modules/categories/913/ekonomikuri-makhasiateblebi",
+      },
+      {
+        label: "გარე მიგრაცია",
+        url: "https://www.geostat.ge/ka/modules/categories/914/gare-migratsia",
+      },
+      {
+        label: "შინამეურნეობები",
+        url: "https://www.geostat.ge/ka/modules/categories/915/shinameurneobebi",
+      },
+    ],
+    en: [
+      {
+        label:
+          "The Geographical Distribution of The Population and Internal Migration",
+        url: "https://www.geostat.ge/en/modules/categories/909/the-geographical-distribution-of-the-population-and-internal-migration",
+      },
+      {
+        label: "Demographic and Social Characteristics",
+        url: "https://www.geostat.ge/en/modules/categories/910/demographic-and-social-characteristics",
+      },
+      {
+        label: "Education",
+        url: "https://www.geostat.ge/en/modules/categories/912/education",
+      },
+      {
+        label: "Economic Characteristics",
+        url: "https://www.geostat.ge/en/modules/categories/913/economic-characteristics",
+      },
+      {
+        label: "International Migration",
+        url: "https://www.geostat.ge/en/modules/categories/914/international-migration",
+      },
+      {
+        label: "Households",
+        url: "https://www.geostat.ge/en/modules/categories/915/households",
+      },
+    ],
   };
 
   return (
@@ -133,29 +128,42 @@ export default function Results() {
       <Section>
         <div
           className="results-container"
-          style={{ height: "fit-content", paddingBottom: "20px" }}>
+          style={{ height: "fit-content", paddingBottom: "20px" }}
+        >
           <h1>{text.header2}</h1>
           <div className="links">
-            <ul onClick={(e) => handleClick(e, handlers2)}>
-              <li data-type="first">{links2[language].first}</li>
-              <li data-type="second">{links2[language].second}</li>
-              <li data-type="third">{links2[language].third}</li>
-              <li data-type="fourth">{links2[language].fourth}</li>
+            <ul>
+              {links2[language].map((item) => (
+                <li key={item.url}>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.label}
+                    <ExternalLinkIcon />
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
         <div className="results-container">
           <h1>{text.header}</h1>
           <div className="links">
-            <ul onClick={(e) => handleClick(e, handlers)}>
-              <li data-type="first">{links[language].first}</li>
-              <li data-type="second">{links[language].second}</li>
-              <li data-type="third">{links[language].third}</li>
-              {language === "ka" && (
-                <li data-type="fourth">
-                  2024 წლის მოსახლეობის აღწერის წინასწარი შედეგები (პრეზენტაცია)
+            <ul>
+              {links[language].map((item) => (
+                <li key={item.url}>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.label}
+                    <ExternalLinkIcon />
+                  </a>
                 </li>
-              )}
+              ))}
             </ul>
           </div>
         </div>

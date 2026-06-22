@@ -62,9 +62,8 @@ const translations = {
       },
 
       results: {
-        header: "საქართველოს 2024 წლის მოსახლეობის აღწერის წინასწარი შედეგები",
-        header2:
-          "საქართველოს 2024 წლის მოსახლეობის აღწერის დაზუსტებული შედეგები",
+        header: "2024 წლის სასოფლო-სამეურნეო აღწერის შედეგები",
+        header2: "საქართველოს 2024 წლის მოსახლეობის აღწერის შედეგები",
       },
 
       methodology: {
@@ -336,8 +335,8 @@ const translations = {
       },
 
       results: {
-        header: "2024 Population Census of Georgia Preliminary results",
-        header2: "2024 Population Census of Georgia Finalized results",
+        header: "2024 Agricultural Census Results",
+        header2: "2024 Population Census of Georgia results",
       },
 
       methodology: {
