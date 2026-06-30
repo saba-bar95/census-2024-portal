@@ -92,6 +92,10 @@ export default function Results() {
         label: "შინამეურნეობები",
         url: "https://www.geostat.ge/ka/modules/categories/915/shinameurneobebi",
       },
+      {
+        label: "საბინაო პირობები",
+        url: "https://www.geostat.ge/ka/modules/categories/918/sabinao-pirobebi",
+      },
     ],
     en: [
       {
@@ -119,6 +123,10 @@ export default function Results() {
         label: "Households",
         url: "https://www.geostat.ge/en/modules/categories/915/households",
       },
+      {
+        label: "Living Conditions",
+        url: "https://www.geostat.ge/en/modules/categories/918/living-conditions",
+      },
     ],
   };
 
@@ -135,11 +143,7 @@ export default function Results() {
             <ul>
               {links2[language].map((item) => (
                 <li key={item.url}>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
                     {item.label}
                     <ExternalLinkIcon />
                   </a>
@@ -154,11 +158,7 @@ export default function Results() {
             <ul>
               {links[language].map((item) => (
                 <li key={item.url}>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
                     {item.label}
                     <ExternalLinkIcon />
                   </a>
