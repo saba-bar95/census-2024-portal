@@ -12,12 +12,14 @@ const ScrollToTop = () => {
   localStorage.setItem("language", urlLanguage);
 
   useEffect(() => {
+    document.title = urlLanguage === "ka" ? "აღწერა 2024" : "Census 2024";
+
     window.scrollTo({
       top: 0,
       behavior: "smooth",
       easing: "ease-in-out",
     });
-  }, [location]);
+  }, [location, urlLanguage]);
 
   return null;
 };
