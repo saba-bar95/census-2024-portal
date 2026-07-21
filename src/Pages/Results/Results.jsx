@@ -38,12 +38,16 @@ export default function Results() {
         url: "https://www.geostat.ge/ka/modules/categories/907/natsili-2-meurneobebis-sargeblobashi-arsebuli-mitsa",
       },
       {
-        label: "ნაწილი 3. მრავალწლოვანი ნარგავები",
+        label: "ნაწილი 3. მრავალწლოვანი ნარგავები (გვ. 1)",
         url: "https://www.geostat.ge/ka/modules/categories/916/natsili-3-mravaltslovani-nargavebi",
       },
       {
         label: "ნაწილი 4. პირუტყვი, ფრინველი და ფუტკრის ოჯახები",
         url: "https://www.geostat.ge/ka/modules/categories/917/natsili-4-pirutqvi-frinveli-da-futkris-ojakhebi",
+      },
+      {
+        label: "ნაწილი 3. მრავალწლოვანი ნარგავები (გვ. 2)",
+        url: "https://www.geostat.ge/ka/modules/categories/921/natsili-3-mravaltslovani-nargavebi-gv-2",
       },
     ],
     en: [
@@ -56,12 +60,16 @@ export default function Results() {
         url: "https://www.geostat.ge/en/modules/categories/907/section-2-land-operated-by-agricultural-holdings",
       },
       {
-        label: "Section 3. Permanent Crops",
+        label: "Section 3. Permanent Crops (p. 1)",
         url: "https://www.geostat.ge/en/modules/categories/916/section-3-permanent-crops",
       },
       {
         label: "Section 4. Livestock, Poultry And Beehives",
         url: "https://www.geostat.ge/en/modules/categories/917/section-4-livestock-poultry-and-beehives",
+      },
+      {
+        label: "Section 3. Permanent Crops (p. 2)",
+        url: "https://www.geostat.ge/en/modules/categories/921/part-3-perennial-plantings-p-2",
       },
     ],
   };
