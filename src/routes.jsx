@@ -21,7 +21,7 @@ const routes = [
     element: (
       <>
         <ScrollToTop />
-        <App />,
+        <App />
       </>
     ),
   },
@@ -30,7 +30,7 @@ const routes = [
     element: (
       <>
         <ScrollToTop />
-        <Questionnaires />,
+        <Questionnaires />
       </>
     ),
   },
@@ -39,7 +39,7 @@ const routes = [
     element: (
       <>
         <ScrollToTop />
-        <Methodology />,
+        <Methodology />
       </>
     ),
   },
@@ -48,7 +48,7 @@ const routes = [
     element: (
       <>
         <ScrollToTop />
-        <Results />,
+        <Results />
       </>
     ),
   },
@@ -57,7 +57,7 @@ const routes = [
     element: (
       <>
         <ScrollToTop />
-        <Goals />,
+        <Goals />
       </>
     ),
   },
@@ -66,7 +66,7 @@ const routes = [
     element: (
       <>
         <ScrollToTop />
-        <LegalBasis />,
+        <LegalBasis />
       </>
     ),
   },
@@ -75,7 +75,7 @@ const routes = [
     element: (
       <>
         <ScrollToTop />
-        <Date />,
+        <Date />
       </>
     ),
   },
